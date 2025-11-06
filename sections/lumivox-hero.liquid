@@ -1,0 +1,206 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #LumivoxHero-{{ section.id }} {
+    min-height: {{ section.settings.hero_height }}px;
+  }
+  @media screen and (max-width: 749px) {
+    #LumivoxHero-{{ section.id }} {
+      min-height: {{ section.settings.hero_height | times: 0.7 }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div id="LumivoxHero-{{ section.id }}" class="lumivox-hero gradient color-{{ section.settings.color_scheme }}">
+  <div class="page-width">
+    <div class="lumivox-hero__content">
+      <div class="lumivox-hero__text">
+        {% if section.settings.hero_title != blank %}
+          <h1 class="lumivox-hero__title h0">{{ section.settings.hero_title }}</h1>
+        {% endif %}
+        
+        {% if section.settings.hero_subtitle != blank %}
+          <p class="lumivox-hero__subtitle h4">{{ section.settings.hero_subtitle }}</p>
+        {% endif %}
+
+        <div class="lumivox-hero__trust">
+          {% if section.settings.show_rating %}
+            <div class="trust-badge">⭐⭐⭐⭐⭐ {{ 'lumivox.homepage.trust_rating' | t }}</div>
+          {% endif %}
+          {% if section.settings.show_shipping %}
+            <div class="trust-badge">🚚 {{ 'lumivox.homepage.trust_shipping' | t }}</div>
+          {% endif %}
+          {% if section.settings.show_return %}
+            <div class="trust-badge">↩️ {{ 'lumivox.homepage.trust_return' | t }}</div>
+          {% endif %}
+          {% if section.settings.show_warranty %}
+            <div class="trust-badge">🛡️ {{ 'lumivox.homepage.trust_warranty' | t }}</div>
+          {% endif %}
+        </div>
+
+        <div class="lumivox-hero__buttons">
+          {% if section.settings.cta_primary_text != blank %}
+            <a href="{{ section.settings.cta_primary_link }}" class="button button--primary">
+              {{ section.settings.cta_primary_text }}
+            </a>
+          {% endif %}
+          {% if section.settings.cta_secondary_text != blank %}
+            <a href="{{ section.settings.cta_secondary_link }}" class="button button--secondary">
+              {{ section.settings.cta_secondary_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+
+      {% if section.settings.hero_image != blank %}
+        <div class="lumivox-hero__image">
+          {{ section.settings.hero_image | image_url: width: 1200 | image_tag: loading: 'eager', alt: section.settings.hero_title }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .lumivox-hero {
+    display: flex;
+    align-items: center;
+    padding: 4rem 0;
+  }
+  .lumivox-hero__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .lumivox-hero__title {
+    margin-bottom: 1.5rem;
+  }
+  .lumivox-hero__subtitle {
+    margin-bottom: 2rem;
+    opacity: 0.85;
+  }
+  .lumivox-hero__trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  .trust-badge {
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+  .lumivox-hero__buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  @media screen and (max-width: 749px) {
+    .lumivox-hero__content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .lumivox-hero__image {
+      order: -1;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Lumivox Hero",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Titre principal",
+      "default": "Remplacez votre télévision par un écran de cinéma géant"
+    },
+    {
+      "type": "text",
+      "id": "hero_subtitle",
+      "label": "Sous-titre",
+      "default": "Découvrez nos projecteurs portables Full HD et 8K. L'alternative moderne à la TV classique."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Image"
+    },
+    {
+      "type": "range",
+      "id": "hero_height",
+      "min": 400,
+      "max": 800,
+      "step": 50,
+      "default": 600,
+      "label": "Hauteur (px)"
+    },
+    {
+      "type": "header",
+      "content": "Trust Badges"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "label": "Afficher note",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_shipping",
+      "label": "Afficher livraison",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_return",
+      "label": "Afficher retour",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_warranty",
+      "label": "Afficher garantie",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Boutons"
+    },
+    {
+      "type": "text",
+      "id": "cta_primary_text",
+      "label": "Texte bouton principal",
+      "default": "Découvrir nos projecteurs"
+    },
+    {
+      "type": "url",
+      "id": "cta_primary_link",
+      "label": "Lien bouton principal"
+    },
+    {
+      "type": "text",
+      "id": "cta_secondary_text",
+      "label": "Texte bouton secondaire",
+      "default": "Voir le guide complet"
+    },
+    {
+      "type": "url",
+      "id": "cta_secondary_link",
+      "label": "Lien bouton secondaire"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Schéma de couleurs",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lumivox Hero"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,83 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true
+    },
+    "guide_header": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "guide_toc": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"page-width\">\n  <div class=\"guide-toc\">\n    <h3>Table des matières</h3>\n    <ol>\n      <li><a href=\"#pourquoi\">Pourquoi remplacer sa TV ?</a></li>\n      <li><a href=\"#comparatif\">Projecteur vs TV : Comparatif</a></li>\n      <li><a href=\"#avantages\">Les 7 avantages du projecteur</a></li>\n      <li><a href=\"#inconvenients\">Les inconvénients (et solutions)</a></li>\n      <li><a href=\"#budget\">Quel budget prévoir ?</a></li>\n      <li><a href=\"#choisir\">Comment choisir ?</a></li>\n      <li><a href=\"#installation\">Installation étape par étape</a></li>\n      <li><a href=\"#optimiser\">Optimiser son salon</a></li>\n      <li><a href=\"#faq\">Questions fréquentes</a></li>\n      <li><a href=\"#recommandation\">Notre recommandation</a></li>\n    </ol>\n  </div>\n</div>\n\n<style>\n.guide-toc {\n  background: rgba(var(--color-foreground), 0.05);\n  padding: 2rem;\n  border-radius: 8px;\n  margin: 2rem 0;\n  max-width: 800px;\n  margin-left: auto;\n  margin-right: auto;\n}\n.guide-toc h3 {\n  margin-bottom: 1rem;\n}\n.guide-toc ol {\n  margin-left: 1.5rem;\n}\n.guide-toc li {\n  margin-bottom: 0.5rem;\n}\n.guide-toc a {\n  color: rgb(var(--color-link));\n  text-decoration: none;\n}\n.guide-toc a:hover {\n  text-decoration: underline;\n}\n</style>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 20
+      }
+    },
+    "guide_content": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 20,
+        "padding_bottom": 40
+      }
+    },
+    "guide_cta": {
+      "type": "image-banner",
+      "settings": {
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      },
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Prêt à passer au projecteur ?",
+            "heading_size": "h1"
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Découvrir nos projecteurs",
+            "button_link_1": "/collections/projecteurs-portables",
+            "button_style_secondary_1": false,
+            "button_label_2": "Demander une démo",
+            "button_link_2": "/pages/contact",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": ["heading", "buttons"]
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "guide_header",
+    "guide_toc",
+    "guide_content",
+    "guide_cta"
+  ]
+}

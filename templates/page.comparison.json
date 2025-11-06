@@ -1,0 +1,86 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "comparison_header": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "comparison_table": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"page-width\">\n  <div class=\"comparison-table-wrapper\">\n    <table class=\"comparison-table\">\n      <thead>\n        <tr>\n          <th></th>\n          <th class=\"product-column\">\n            <div class=\"product-header\">\n              <img src=\"{{ 'lumimax-900.jpg' | asset_url }}\" alt=\"LumiMax 900\" width=\"200\">\n              <h3>LumiMax 900</h3>\n            </div>\n          </th>\n          <th class=\"product-column\">\n            <div class=\"product-header\">\n              <img src=\"{{ 'lumiplay-one.jpg' | asset_url }}\" alt=\"LumiPlay One\" width=\"200\">\n              <h3>LumiPlay One</h3>\n            </div>\n          </th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr>\n          <td><strong>Prix</strong></td>\n          <td>170€ <s>210€</s></td>\n          <td>120€ <s>170€</s></td>\n        </tr>\n        <tr>\n          <td><strong>Résolution</strong></td>\n          <td>8K upscaling 🏆</td>\n          <td>Full HD 1080p</td>\n        </tr>\n        <tr>\n          <td><strong>Luminosité</strong></td>\n          <td>900 lumens 🏆</td>\n          <td>600 lumens</td>\n        </tr>\n        <tr>\n          <td><strong>Taille écran max</strong></td>\n          <td>300 pouces 🏆</td>\n          <td>200 pouces</td>\n        </tr>\n        <tr>\n          <td><strong>Poids</strong></td>\n          <td>2.1 kg</td>\n          <td>1.2 kg 🏆</td>\n        </tr>\n        <tr>\n          <td><strong>Dimensions</strong></td>\n          <td>20x20x8 cm</td>\n          <td>15x15x6 cm 🏆</td>\n        </tr>\n        <tr>\n          <td><strong>Garantie</strong></td>\n          <td>2 ans</td>\n          <td>2 ans</td>\n        </tr>\n        <tr class=\"cta-row\">\n          <td></td>\n          <td><a href=\"/products/lumimax-900\" class=\"button\">Commander</a></td>\n          <td><a href=\"/products/lumiplay-one\" class=\"button\">Commander</a></td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</div>\n\n<style>\n.comparison-table-wrapper {\n  overflow-x: auto;\n  margin: 2rem 0;\n}\n.comparison-table {\n  width: 100%;\n  border-collapse: collapse;\n  background: white;\n  box-shadow: 0 2px 8px rgba(0,0,0,0.1);\n}\n.comparison-table th,\n.comparison-table td {\n  padding: 1.5rem;\n  text-align: left;\n  border-bottom: 1px solid rgba(0,0,0,0.1);\n}\n.comparison-table th {\n  background: rgba(var(--color-foreground), 0.05);\n}\n.product-column {\n  text-align: center;\n  width: 35%;\n}\n.product-header img {\n  margin-bottom: 1rem;\n  border-radius: 8px;\n}\n.comparison-table tr:hover {\n  background: rgba(var(--color-foreground), 0.02);\n}\n.cta-row td {\n  padding-top: 2rem;\n}\n@media screen and (max-width: 749px) {\n  .comparison-table {\n    font-size: 0.875rem;\n  }\n  .comparison-table th,\n  .comparison-table td {\n    padding: 1rem;\n  }\n}\n</style>",
+        "color_scheme": "scheme-1",
+        "padding_top": 20,
+        "padding_bottom": 40
+      }
+    },
+    "decision_helper": {
+      "type": "multicolumn",
+      "settings": {
+        "title": "Quel projecteur choisir ?",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 2,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      },
+      "blocks": {
+        "column_1": {
+          "type": "column",
+          "settings": {
+            "title": "Choisissez le LumiMax 900 si...",
+            "text": "<p>✓ Vous voulez la meilleure qualité d'image<br>✓ Vous avez un grand salon<br>✓ Le home cinéma est votre priorité<br>✓ Budget : 170€</p>",
+            "link_label": "Commander le LumiMax 900",
+            "link": "/products/lumimax-900"
+          }
+        },
+        "column_2": {
+          "type": "column",
+          "settings": {
+            "title": "Choisissez le LumiPlay One si...",
+            "text": "<p>✓ Vous privilégiez la portabilité<br>✓ Vous avez un petit espace<br>✓ Meilleur rapport qualité/prix<br>✓ Budget : 120€</p>",
+            "link_label": "Commander le LumiPlay One",
+            "link": "/products/lumiplay-one"
+          }
+        }
+      },
+      "block_order": ["column_1", "column_2"]
+    },
+    "comparison_content": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "left",
+        "content_alignment": "left",
+        "color_scheme": "scheme-1",
+        "full_width": false,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "comparison_header",
+    "comparison_table",
+    "decision_helper",
+    "comparison_content"
+  ]
+}

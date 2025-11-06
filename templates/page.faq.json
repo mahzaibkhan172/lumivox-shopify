@@ -1,0 +1,147 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {}
+    },
+    "faq_header": {
+      "type": "rich-text",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 20
+      }
+    },
+    "faq_filters": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"page-width\">\n  <div class=\"faq-filters\">\n    <button class=\"faq-filter active\" data-category=\"all\">Tous</button>\n    <button class=\"faq-filter\" data-category=\"produit\">Produit</button>\n    <button class=\"faq-filter\" data-category=\"livraison\">Livraison</button>\n    <button class=\"faq-filter\" data-category=\"garantie\">Garantie</button>\n    <button class=\"faq-filter\" data-category=\"installation\">Installation</button>\n    <button class=\"faq-filter\" data-category=\"utilisation\">Utilisation</button>\n  </div>\n</div>\n\n<style>\n.faq-filters {\n  display: flex;\n  gap: 1rem;\n  flex-wrap: wrap;\n  justify-content: center;\n  margin: 2rem 0;\n}\n.faq-filter {\n  padding: 0.75rem 1.5rem;\n  border: 1px solid rgba(var(--color-foreground), 0.2);\n  background: transparent;\n  border-radius: 50px;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n.faq-filter:hover,\n.faq-filter.active {\n  background: rgb(var(--color-button));\n  color: rgb(var(--color-button-text));\n  border-color: rgb(var(--color-button));\n}\n</style>\n\n<script>\ndocument.addEventListener('DOMContentLoaded', function() {\n  const filters = document.querySelectorAll('.faq-filter');\n  const faqItems = document.querySelectorAll('.faq-item');\n  \n  filters.forEach(filter => {\n    filter.addEventListener('click', function() {\n      const category = this.dataset.category;\n      \n      filters.forEach(f => f.classList.remove('active'));\n      this.classList.add('active');\n      \n      faqItems.forEach(item => {\n        if (category === 'all' || item.dataset.category === category) {\n          item.style.display = 'block';\n        } else {\n          item.style.display = 'none';\n        }\n      });\n    });\n  });\n});\n</script>",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 20
+      }
+    },
+    "faq_produit": {
+      "type": "collapsible-content",
+      "settings": {
+        "caption": "PRODUIT",
+        "heading": "Questions sur les produits",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "none",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      },
+      "blocks": {
+        "faq_1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Un projecteur peut-il remplacer ma TV au quotidien ?",
+            "row_content": "<p>Oui, nos projecteurs sont conçus pour un usage quotidien. Avec une durée de vie LED de 50 000 heures (environ 20 ans à raison de 6h/jour), ils offrent une fiabilité comparable à une télévision. La qualité d'image Full HD et 8K garantit une expérience visuelle exceptionnelle pour tous vos contenus.</p>",
+            "page": ""
+          }
+        },
+        "faq_2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Quelle est la durée de vie de la LED ?",
+            "row_content": "<p>Nos projecteurs utilisent une technologie LED avec une durée de vie de 50 000 heures. Contrairement aux anciennes lampes de projecteur, vous n'aurez jamais besoin de remplacer la source lumineuse.</p>",
+            "page": ""
+          }
+        },
+        "faq_3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Quelle est la différence entre LumiMax 900 et LumiPlay One ?",
+            "row_content": "<p>Le LumiMax 900 offre une résolution 8K upscaling et 900 lumens, idéal pour les grands salons et le home cinéma. Le LumiPlay One est plus compact (1.2kg) avec 600 lumens et Full HD, parfait pour les petits espaces et la portabilité.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": ["faq_1", "faq_2", "faq_3"]
+    },
+    "faq_livraison": {
+      "type": "collapsible-content",
+      "settings": {
+        "caption": "LIVRAISON",
+        "heading": "Livraison & Retours",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "none",
+        "color_scheme": "scheme-1",
+        "container_color_scheme": "scheme-2",
+        "open_first_collapsible_row": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      },
+      "blocks": {
+        "faq_4": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Livrez-vous en France et Belgique ?",
+            "row_content": "<p>Oui, nous livrons gratuitement en France métropolitaine et en Belgique. Expédition depuis l'Europe sous 24-48h.</p>",
+            "page": ""
+          }
+        },
+        "faq_5": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Quels sont les délais de livraison ?",
+            "row_content": "<p>Livraison express en 2-4 jours ouvrés pour la France et la Belgique. Vous recevez un numéro de suivi dès l'expédition.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": ["faq_4", "faq_5"]
+    },
+    "faq_cta": {
+      "type": "image-banner",
+      "settings": {
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      },
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Vous n'avez pas trouvé votre réponse ?",
+            "heading_size": "h2"
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Nous contacter",
+            "button_link_1": "/pages/contact",
+            "button_style_secondary_1": false,
+            "button_label_2": "☎ Appeler maintenant",
+            "button_link_2": "tel:+32XXXXXXXXX",
+            "button_style_secondary_2": true
+          }
+        }
+      },
+      "block_order": ["heading", "buttons"]
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "faq_header",
+    "faq_filters",
+    "faq_produit",
+    "faq_livraison",
+    "faq_cta"
+  ]
+}

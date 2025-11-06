@@ -1,0 +1,158 @@
+<div class="lumivox-usps gradient color-{{ section.settings.color_scheme }}">
+  <div class="page-width section-{{ section.id }}-padding">
+    {% if section.settings.title != blank %}
+      <h2 class="lumivox-usps__title center">{{ section.settings.title }}</h2>
+    {% endif %}
+
+    <div class="lumivox-usps__grid">
+      {% for block in section.blocks %}
+        <div class="lumivox-usps__item" {{ block.shopify_attributes }}>
+          {% if block.settings.icon != blank %}
+            <div class="lumivox-usps__icon">{{ block.settings.icon }}</div>
+          {% endif %}
+          <div class="lumivox-usps__content">
+            {% if block.settings.title != blank %}
+              <h3 class="h5">{{ block.settings.title }}</h3>
+            {% endif %}
+            {% if block.settings.description != blank %}
+              <p class="caption">{{ block.settings.description }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .lumivox-usps {
+    padding: 4rem 0;
+  }
+  .lumivox-usps__title {
+    margin-bottom: 3rem;
+  }
+  .lumivox-usps__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  .lumivox-usps__item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .lumivox-usps__icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+  .lumivox-usps__content h3 {
+    margin-bottom: 0.25rem;
+  }
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Lumivox USPs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Pourquoi choisir Lumivox ?"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Schéma de couleurs",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 36,
+      "label": "Padding haut"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 36,
+      "label": "Padding bas"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "usp",
+      "name": "USP",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icône (emoji)",
+          "default": "🚚"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Livraison express"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Expédition 24-48h depuis l'Europe"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lumivox USPs",
+      "blocks": [
+        {
+          "type": "usp",
+          "settings": {
+            "icon": "🚚",
+            "title": "Livraison express",
+            "description": "Expédition 24-48h depuis l'Europe"
+          }
+        },
+        {
+          "type": "usp",
+          "settings": {
+            "icon": "🛡️",
+            "title": "Garantie 2 ans",
+            "description": "SAV réactif en français"
+          }
+        },
+        {
+          "type": "usp",
+          "settings": {
+            "icon": "↩️",
+            "title": "Satisfait ou remboursé",
+            "description": "14 jours pour tester chez vous"
+          }
+        },
+        {
+          "type": "usp",
+          "settings": {
+            "icon": "💬",
+            "title": "Support dédié",
+            "description": "Équipe disponible 7j/7"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

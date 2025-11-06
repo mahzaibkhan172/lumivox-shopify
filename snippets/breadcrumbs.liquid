@@ -1,0 +1,84 @@
+{% comment %}
+  Breadcrumbs navigation for SEO and UX
+{% endcomment %}
+
+<nav class="breadcrumbs" role="navigation" aria-label="Breadcrumb">
+  <ol class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="/" itemprop="item">
+        <span itemprop="name">Accueil</span>
+      </a>
+      <meta itemprop="position" content="1" />
+    </li>
+
+    {% if template contains 'collection' %}
+      <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name">{{ collection.title }}</span>
+        <meta itemprop="position" content="2" />
+      </li>
+    {% elsif template contains 'product' %}
+      <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/collections/projecteurs-portables" itemprop="item">
+          <span itemprop="name">Projecteurs portables</span>
+        </a>
+        <meta itemprop="position" content="2" />
+      </li>
+      <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name">{{ product.title }}</span>
+        <meta itemprop="position" content="3" />
+      </li>
+    {% elsif template contains 'page' %}
+      <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <span itemprop="name">{{ page.title }}</span>
+        <meta itemprop="position" content="2" />
+      </li>
+    {% elsif template contains 'blog' %}
+      <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="/blogs/{{ blog.handle }}" itemprop="item">
+          <span itemprop="name">{{ blog.title }}</span>
+        </a>
+        <meta itemprop="position" content="2" />
+      </li>
+      {% if article %}
+        <li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">{{ article.title }}</span>
+          <meta itemprop="position" content="3" />
+        </li>
+      {% endif %}
+    {% endif %}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumbs {
+    padding: 1rem 0;
+  }
+  .breadcrumbs__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.875rem;
+  }
+  .breadcrumbs__item {
+    display: flex;
+    align-items: center;
+  }
+  .breadcrumbs__item:not(:last-child)::after {
+    content: '›';
+    margin: 0 0.5rem;
+    opacity: 0.5;
+  }
+  .breadcrumbs__item a {
+    color: rgba(var(--color-foreground), 0.7);
+    text-decoration: none;
+  }
+  .breadcrumbs__item a:hover {
+    color: rgb(var(--color-foreground));
+    text-decoration: underline;
+  }
+  .breadcrumbs__item:last-child span {
+    color: rgb(var(--color-foreground));
+  }
+</style>

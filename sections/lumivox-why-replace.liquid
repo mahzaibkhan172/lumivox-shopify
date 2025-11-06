@@ -1,0 +1,168 @@
+<div class="lumivox-why-replace gradient color-{{ section.settings.color_scheme }}">
+  <div class="page-width section-{{ section.id }}-padding">
+    {% if section.settings.title != blank %}
+      <h2 class="lumivox-why-replace__title center">{{ section.settings.title }}</h2>
+    {% endif %}
+
+    <div class="lumivox-why-replace__grid">
+      {% for block in section.blocks %}
+        <div class="lumivox-why-replace__item" {{ block.shopify_attributes }}>
+          {% if block.settings.icon != blank %}
+            <div class="lumivox-why-replace__icon">{{ block.settings.icon }}</div>
+          {% endif %}
+          {% if block.settings.title != blank %}
+            <h3 class="h4">{{ block.settings.title }}</h3>
+          {% endif %}
+          {% if block.settings.description != blank %}
+            <p>{{ block.settings.description }}</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.cta_text != blank %}
+      <div class="lumivox-why-replace__cta center">
+        <a href="{{ section.settings.cta_link }}" class="link">
+          {{ section.settings.cta_text }} →
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  .lumivox-why-replace {
+    padding: 5rem 0;
+  }
+  .lumivox-why-replace__title {
+    margin-bottom: 3rem;
+  }
+  .lumivox-why-replace__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2rem;
+  }
+  .lumivox-why-replace__item {
+    text-align: center;
+  }
+  .lumivox-why-replace__icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .lumivox-why-replace__item h3 {
+    margin-bottom: 0.5rem;
+  }
+  .lumivox-why-replace__cta {
+    margin-top: 2rem;
+  }
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Pourquoi Remplacer TV",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Titre",
+      "default": "Pourquoi remplacer votre télévision par un projecteur portable ?"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Texte CTA"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Lien CTA"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Schéma de couleurs",
+      "default": "scheme-2"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 36,
+      "label": "Padding haut"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 36,
+      "label": "Padding bas"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Avantage",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icône (emoji)",
+          "default": "📐"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Titre",
+          "default": "Écran jusqu'à 10x plus grand"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Un écran de 100 à 300 pouces pour le prix d'une TV 55 pouces"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pourquoi Remplacer TV",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "📐",
+            "title": "Écran jusqu'à 10x plus grand",
+            "description": "Un écran de 100 à 300 pouces pour le prix d'une TV 55 pouces"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🏠",
+            "title": "Gagnez de l'espace",
+            "description": "Se range en 10 secondes. Fini le meuble TV encombrant"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "👁️",
+            "title": "Confort visuel supérieur",
+            "description": "Lumière réfléchie. Réduction de 60% de la fatigue oculaire"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

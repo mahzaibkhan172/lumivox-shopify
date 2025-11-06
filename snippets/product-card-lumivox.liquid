@@ -1,0 +1,154 @@
+{% comment %}
+  Renders a product card for Lumivox with badges and French formatting
+  
+  Accepts:
+  - product: {Object} Product object
+  - show_badge: {Boolean} Show bestseller/promo badge
+  - badge_text: {String} Custom badge text
+  
+  Usage:
+  {% render 'product-card-lumivox', product: product, show_badge: true, badge_text: "PLUS VENDU" %}
+{% endcomment %}
+
+<div class="lumivox-product-card">
+  <a href="{{ product.url }}" class="lumivox-product-card__link">
+    <div class="lumivox-product-card__image">
+      {% if show_badge and badge_text != blank %}
+        <span class="lumivox-product-card__badge">🔥 {{ badge_text }}</span>
+      {% endif %}
+      
+      {% if product.featured_image %}
+        {{ product.featured_image | image_url: width: 600 | image_tag: 
+          loading: 'lazy',
+          alt: product.title,
+          class: 'lumivox-product-card__img'
+        }}
+      {% else %}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {% endif %}
+    </div>
+
+    <div class="lumivox-product-card__info">
+      <h3 class="lumivox-product-card__title h5">{{ product.title }}</h3>
+      
+      {% if product.metafields.reviews.rating.value %}
+        <div class="lumivox-product-card__rating">
+          <span class="rating-stars">⭐⭐⭐⭐⭐</span>
+          <span class="rating-value">{{ product.metafields.reviews.rating.value }}/5</span>
+          <span class="rating-count">({{ product.metafields.reviews.rating_count }} avis)</span>
+        </div>
+      {% endif %}
+
+      {% if product.metafields.lumivox.specs %}
+        <div class="lumivox-product-card__specs">
+          {{ product.metafields.lumivox.specs }}
+        </div>
+      {% endif %}
+
+      <div class="lumivox-product-card__price">
+        {% if product.compare_at_price > product.price %}
+          <span class="price-sale">{{ product.price | money }}</span>
+          <span class="price-compare"><s>{{ product.compare_at_price | money }}</s></span>
+        {% else %}
+          <span class="price-regular">{{ product.price | money }}</span>
+        {% endif %}
+      </div>
+
+      <div class="lumivox-product-card__stock">
+        {% if product.available %}
+          <span class="stock-available">✓ En stock</span>
+        {% else %}
+          <span class="stock-unavailable">Rupture de stock</span>
+        {% endif %}
+      </div>
+    </div>
+  </a>
+
+  <div class="lumivox-product-card__actions">
+    <button type="button" class="button button--secondary button--full-width quick-view-btn" 
+            data-product-url="{{ product.url }}">
+      Vue rapide
+    </button>
+    <a href="{{ product.url }}" class="link">Voir détails →</a>
+  </div>
+</div>
+
+<style>
+  .lumivox-product-card {
+    border: 1px solid rgba(var(--color-foreground), 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .lumivox-product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  }
+  .lumivox-product-card__link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .lumivox-product-card__image {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+  .lumivox-product-card__badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(var(--color-button), 0.9);
+    color: rgb(var(--color-button-text));
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 1;
+  }
+  .lumivox-product-card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .lumivox-product-card__info {
+    padding: 1.5rem;
+  }
+  .lumivox-product-card__title {
+    margin-bottom: 0.5rem;
+  }
+  .lumivox-product-card__rating {
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+  .rating-stars {
+    color: #ffa500;
+  }
+  .lumivox-product-card__specs {
+    font-size: 0.875rem;
+    color: rgba(var(--color-foreground), 0.7);
+    margin-bottom: 0.75rem;
+  }
+  .lumivox-product-card__price {
+    margin-bottom: 0.5rem;
+  }
+  .price-sale {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(var(--color-button));
+  }
+  .price-compare {
+    margin-left: 0.5rem;
+    color: rgba(var(--color-foreground), 0.5);
+  }
+  .stock-available {
+    color: #22c55e;
+    font-size: 0.875rem;
+  }
+  .lumivox-product-card__actions {
+    padding: 0 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+</style>
