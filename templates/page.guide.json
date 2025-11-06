@@ -74,6 +74,7 @@
     }
   },
   "order": [
+    "main",
     "breadcrumbs",
     "guide_header",
     "guide_toc",

@@ -1,5 +1,9 @@
 {
   "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true
+    },
     "breadcrumbs": {
       "type": "breadcrumbs",
       "settings": {}
@@ -137,6 +141,7 @@
     }
   },
   "order": [
+    "main",
     "breadcrumbs",
     "faq_header",
     "faq_filters",
