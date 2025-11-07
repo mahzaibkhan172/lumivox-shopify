@@ -1,0 +1,46 @@
+{
+  "sections": {
+    "test_section": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "✅ THEME IS WORKING!",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>If you see this, your theme files are loaded correctly.</p><p><strong>Next steps:</strong></p><ul><li>Create collection: projecteurs-portables</li><li>Create blog: guides</li><li>Add products</li><li>Switch to index-lumivox template</li></ul>"
+          }
+        }
+      },
+      "block_order": ["heading", "text"],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "lumivox_hero": {
+      "type": "lumivox-hero",
+      "settings": {
+        "title": "Remplacez votre télévision par un écran de cinéma géant",
+        "subtitle": "Découvrez nos projecteurs portables Full HD et 8K.",
+        "button_primary_text": "Test Button",
+        "button_primary_link": "/",
+        "button_secondary_text": "Test Button 2",
+        "button_secondary_link": "/"
+      }
+    }
+  },
+  "order": [
+    "test_section",
+    "lumivox_hero"
+  ]
+}

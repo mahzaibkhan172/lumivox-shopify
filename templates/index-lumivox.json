@@ -24,7 +24,7 @@
       "settings": {
         "title": "Nos projecteurs best-sellers",
         "heading_size": "h2",
-        "collection": "projecteurs-portables",
+        "collection": "all",
         "products_to_show": 2,
         "columns_desktop": 2,
         "color_scheme": "scheme-1",
@@ -93,7 +93,7 @@
       "settings": {
         "heading": "Guides et conseils projecteur",
         "heading_size": "h2",
-        "blog": "guides",
+        "blog": "",
         "post_limit": 3,
         "columns_desktop": 3,
         "color_scheme": "scheme-1",
