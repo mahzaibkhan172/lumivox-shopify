@@ -1,0 +1,169 @@
+{
+  "sections": {
+    "lumivox_hero": {
+      "type": "lumivox-hero",
+      "settings": {
+        "title": "Remplacez votre télévision par un écran de cinéma géant",
+        "subtitle": "Découvrez nos projecteurs portables Full HD et 8K. L'alternative moderne à la TV classique.",
+        "button_primary_text": "Découvrir nos projecteurs",
+        "button_primary_link": "/collections/projecteurs-portables",
+        "button_secondary_text": "Voir le guide complet",
+        "button_secondary_link": "/pages/guide-remplacer-tv-par-projecteur"
+      }
+    },
+    "lumivox_why_replace": {
+      "type": "lumivox-why-replace",
+      "settings": {
+        "title": "Pourquoi remplacer votre télévision par un projecteur portable ?",
+        "cta_text": "En savoir plus",
+        "cta_link": "/pages/guide-remplacer-tv-par-projecteur"
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Nos projecteurs best-sellers",
+        "heading_size": "h2",
+        "collection": "projecteurs-portables",
+        "products_to_show": 2,
+        "columns_desktop": 2,
+        "color_scheme": "scheme-1",
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "image_ratio": "adapt",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "columns_mobile": "1",
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "testimonials": {
+      "type": "multicolumn",
+      "blocks": {
+        "review_1": {
+          "type": "column",
+          "settings": {
+            "title": "⭐⭐⭐⭐⭐",
+            "text": "<p>J'ai remplacé ma TV il y a 3 mois. Meilleure décision ! L'écran géant transforme les soirées films.</p><p><strong>Sophie M., Lyon</strong></p>"
+          }
+        },
+        "review_2": {
+          "type": "column",
+          "settings": {
+            "title": "⭐⭐⭐⭐⭐",
+            "text": "<p>Installation en 5 minutes. Image incroyable. Le LumiMax 900 vaut largement son prix.</p><p><strong>Thomas D., Bruxelles</strong></p>"
+          }
+        },
+        "review_3": {
+          "type": "column",
+          "settings": {
+            "title": "⭐⭐⭐⭐⭐",
+            "text": "<p>Parfait pour mon studio. Se range facilement et l'image est superbe le soir.</p><p><strong>Amélie R., Paris</strong></p>"
+          }
+        }
+      },
+      "block_order": ["review_1", "review_2", "review_3"],
+      "settings": {
+        "title": "Plus de 500 clients satisfaits",
+        "heading_size": "h2",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "secondary",
+        "button_label": "Lire tous les avis",
+        "button_link": "",
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "swipe_on_mobile": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "lumivox_usps": {
+      "type": "lumivox-usps",
+      "settings": {
+        "title": "Pourquoi choisir Lumivox ?"
+      }
+    },
+    "blog_articles": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Guides et conseils projecteur",
+        "heading_size": "h2",
+        "blog": "guides",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "scheme-1",
+        "show_image": true,
+        "show_date": true,
+        "show_author": false,
+        "show_view_all": true,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "lumivox_faq_quick": {
+      "type": "lumivox-faq-quick",
+      "settings": {
+        "title": "Questions fréquentes",
+        "cta_text": "Voir toutes les questions",
+        "cta_link": "/pages/faq"
+      }
+    },
+    "final_cta": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Prêt à transformer votre salon ?",
+            "heading_size": "h2"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Livraison gratuite • Retour 14 jours • Garantie 2 ans</p>",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Choisir mon projecteur",
+            "button_link_1": "/collections/projecteurs-portables",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": ["heading", "text", "button"],
+      "settings": {
+        "image_overlay_opacity": 30,
+        "image_height": "medium",
+        "desktop_content_position": "middle-center",
+        "show_text_box": true,
+        "desktop_content_alignment": "center",
+        "color_scheme": "scheme-3",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": false
+      }
+    }
+  },
+  "order": [
+    "lumivox_hero",
+    "lumivox_why_replace",
+    "featured_collection",
+    "testimonials",
+    "lumivox_usps",
+    "blog_articles",
+    "lumivox_faq_quick",
+    "final_cta"
+  ]
+}
